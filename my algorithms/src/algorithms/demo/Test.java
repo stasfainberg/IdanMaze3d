@@ -7,9 +7,10 @@ import algorithms.mazeGenerators.Position;
 import algorithms.mazeGenerators.SimpleMaze3dGenerator;
 
 public class Test {
-
-	//test pull
+	//test pulldsadasd
 	
+	//jhgjhgfj2234234234
+	//kkjhkjhkj
 	private static void testMazeGenerator(Maze3dGenerator mg){
 		// prints the time it takes the algorithm to run
 		System.out.println("measure");
