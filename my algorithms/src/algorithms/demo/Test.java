@@ -8,18 +8,23 @@ import algorithms.mazeGenerators.SimpleMaze3dGenerator;
 
 public class Test {
 
-	
+	//test pull
 	
 	private static void testMazeGenerator(Maze3dGenerator mg){
 		// prints the time it takes the algorithm to run
+		System.out.println("measure");
 		System.out.println(mg.measureAlgorithmTime(3, 15, 15));
 		// generate another 3d maze
+		System.out.println("generate");
 		Maze3d maze=mg.generate(3, 15, 15);
 		// get the maze entrance
+		System.out.println("positio p = maze.getStartPosition");
 		Position p=maze.getStartPosition();
 		// print the position
+		System.out.println("");
 		System.out.println(p); // format "{x,y,z}"
 		// get all the possible moves from a position
+		System.out.println("");
 		String[] moves=maze.getPossibleMoves(p);
 		// print the moves
 		for(String move : moves)
@@ -41,7 +46,11 @@ public class Test {
 		}
 		}
 		public static void main(String[] args) {
+			
+		System.out.println("******************* Simple ******************");
 		testMazeGenerator(new SimpleMaze3dGenerator());
+		System.out.println("");
+		System.out.println("******************* Simple ******************");
 		testMazeGenerator(new MyMaze3dGenerator());
 		}
 	

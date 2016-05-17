@@ -8,13 +8,16 @@ public abstract class CommonMaze3dGenerator implements Maze3dGenerator {
 	
 	@Override
 	public abstract Maze3d generate(int floor, int rows, int cols);
+	
 	public abstract void chooseStartPosition();
+	
 	@Override
 	public String measureAlgorithmTime(int floor, int rows, int cols) {
 	//moded time to creating the Maze
-		Maze3d maze3d=new Maze3d(floor, rows, cols);
+//		Maze3d maze3d=new Maze3d(floor, rows, cols);
 		long start = System.currentTimeMillis(); //begin time to building the maze
-		maze3d=generate(floor, rows, cols);
+//		maze3d=generate(floor, rows, cols);
+		this.generate(floor, rows, cols);
 		long finish = System.currentTimeMillis(); // end time to building the maze		
 		long generate_time=finish-start; // the total time to building the maze	
 		String s = Objects.toString(generate_time, null); //casting time from long to string
