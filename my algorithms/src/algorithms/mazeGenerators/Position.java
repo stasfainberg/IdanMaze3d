@@ -7,6 +7,16 @@ public class Position {
 	public int rows;
 	public int cols;
 	
+	public Position() {
+	}
+	
+	
+	public Position(int floor, int rows, int cols) {
+		this.floor = floor; 
+		this.rows = rows;
+		this.cols= cols;
+	}
+	
 	
 	public int getFloor() {
 		return floor;
@@ -32,11 +42,7 @@ public class Position {
 		this.cols = cols;
 	}
 
-	public Position(int floor, int rows, int cols) {
-		this.floor = floor; 
-		this.rows = rows;
-		this.cols= cols;
-	}
+
 	
 	@Override 
 	public String toString() {

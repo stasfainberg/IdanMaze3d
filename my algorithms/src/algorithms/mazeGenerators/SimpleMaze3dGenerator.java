@@ -5,8 +5,8 @@ import java.util.Random;
 
 public class SimpleMaze3dGenerator extends CommonMaze3dGenerator {
 
-	private Maze3d maze;
-	private Random rand = new Random();
+	//protected Maze3d maze;
+	//private Random rand = new Random();
 	
 	@Override
 	//need a simple implementation by random
@@ -20,11 +20,14 @@ public class SimpleMaze3dGenerator extends CommonMaze3dGenerator {
 		
 		this.maze = new Maze3d(floor, rows, cols);
 		
-		Position pos=new Position(floor-1, rows-1, cols-1);
+		System.out.println(maze.toString());	
+
+		Position pos=new Position();
 		System.out.println("Position:" + pos);
 		
 		/* קריאה למטודה initMaze() */ 
-		initMaze(pos.getFloor(), pos.getRows(), pos.getCols()); //אתחול מבוך בקירות (1-ים)
+		initMaze(floor, rows, cols); //אתחול מבוך בקירות (1-ים)
+		
 		
 		// Choose random start position			
 		chooseStartPosition();
@@ -33,25 +36,25 @@ public class SimpleMaze3dGenerator extends CommonMaze3dGenerator {
 		
 	}
 	
-	public void initMaze(int floor, int rows, int cols) 
-	{
-		System.out.println("initMaze started");
-		Maze3d MyMaze = new Maze3d(floor,rows,cols);
-		int[][][] m = MyMaze.getMaze();
-		
-		System.out.println("MyMaze");
-		System.out.println(MyMaze.toString());
-		for(int floor_count = 0; floor_count < floor; floor_count++) 
-		{
-			for (int rows_count = 0; rows_count < rows; rows_count++) 
-			{
-				for (int cols_count = 0; cols_count < cols; cols_count++) 
-					m[floor_count][rows_count][cols_count] = Maze3d.WALL;
-			}
-		}		
-		System.out.println("MyMaze");
-		System.out.println(MyMaze.toString());
-	}
+//	public void initMaze(int floor, int rows, int cols) 
+//	{
+//		System.out.println("initMaze started");
+//		Maze3d MyMaze = new Maze3d(floor,rows,cols);
+//		int[][][] m = MyMaze.getMaze();
+//		
+//		System.out.println("MyMaze");
+//		System.out.println(MyMaze.toString());
+//		for(int floor_count = 0; floor_count < floor; floor_count++) 
+//		{
+//			for (int rows_count = 0; rows_count < rows; rows_count++) 
+//			{
+//				for (int cols_count = 0; cols_count < cols; cols_count++) 
+//					m[floor_count][rows_count][cols_count] = Maze3d.WALL;
+//			}
+//		}		
+//		System.out.println("MyMaze");
+//		System.out.println(MyMaze.toString());
+//	}
 	//בחירה רנדומלית למיקום ההתחלתי
 	public void chooseStartPosition() {	
 		System.out.println("chooseStartPosition started");
@@ -107,7 +110,7 @@ public class SimpleMaze3dGenerator extends CommonMaze3dGenerator {
 				
 				switch (dir) {
 				case DOWN:
-					m[pos.floor-1][pos.rows][pos.cols] = Maze3d.FREE;
+					m[pos.floor][pos.rows][pos.cols] = Maze3d.FREE;
 					if(pos.floor==2)
 					{
 						m[pos.floor-2][pos.rows][pos.cols] = Maze3d.FREE;				
@@ -164,9 +167,9 @@ public class SimpleMaze3dGenerator extends CommonMaze3dGenerator {
 		System.out.println("maze:");
 		System.out.println(maze.toString());
 		
-		System.out.println(pos.getFloor()-1);
-		System.out.println(pos.getRows()-1);
-		System.out.println(pos.getCols()-1);
+		System.out.println(pos.getFloor());
+		System.out.println(pos.getRows());
+		System.out.println(pos.getCols());
 		
 		System.out.println("start check neighbors");
 		// Check up neighbor
@@ -199,7 +202,7 @@ public class SimpleMaze3dGenerator extends CommonMaze3dGenerator {
 			dirs.add(Direction.FORWARD);
 		}
 		
-		
+		System.out.println("getPossibleDirections Ended");
 		return dirs;
 	}
 	

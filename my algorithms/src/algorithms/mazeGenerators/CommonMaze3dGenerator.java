@@ -1,10 +1,13 @@
 package algorithms.mazeGenerators;
 
 import java.util.Objects;
+import java.util.Random;
 
 public abstract class CommonMaze3dGenerator implements Maze3dGenerator {
 	
-	//protected Maze3d maze = new Maze3d(0, 0, 0);
+	protected Maze3d maze;
+	int[][][] array3d;
+	protected Random rand = new Random();
 	
 	@Override
 	public abstract Maze3d generate(int floor, int rows, int cols);
@@ -26,8 +29,27 @@ public abstract class CommonMaze3dGenerator implements Maze3dGenerator {
 		return s;
 	}
 	
-	public abstract void initMaze(int floor, int rows, int cols);
-	
+	public void initMaze(int floor, int rows, int cols) 
+	{
+		System.out.println("initMaze started");
+		//Maze3d MyMaze = new Maze3d(floor,rows,cols);
+		//int[][][] m = this.getMaze();
+		
+		System.out.println("MyMaze 0000");
+		//System.out.println(MyMaze.toString());
+		System.out.println(maze.toString());
+		for(int floor_count = 0; floor_count < floor; floor_count++) 
+		{
+			for (int rows_count = 0; rows_count < rows; rows_count++) 
+			{
+				for (int cols_count = 0; cols_count < cols; cols_count++) 
+					maze.getMaze()[floor_count][rows_count][cols_count] = Maze3d.WALL;
+			}
+		}		
+		System.out.println("MyMaze 1111");
+		System.out.println(maze.toString());
+	}
+
 //	public void initMaze() 
 //	{
 //		//int[][][] m = maze.getMaze();
