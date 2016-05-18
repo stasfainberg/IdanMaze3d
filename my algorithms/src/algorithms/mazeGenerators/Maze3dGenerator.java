@@ -7,9 +7,14 @@ public interface Maze3dGenerator {
 	//moded time to creating the Maze
 	public String measureAlgorithmTime(int floor, int rows, int cols);
 	//אתחול מבוך בקירות (1-ים)
-	public void initMaze();
+	public void initMaze(int floor, int rows, int cols);
 	//בחירת מיקום התחלתי ואסטרקתי בגלל שהמימוש שונה לכל אלגוריתם
 	public abstract void chooseStartPosition();
+	
+	
+	
+	
+	
 }
 
 

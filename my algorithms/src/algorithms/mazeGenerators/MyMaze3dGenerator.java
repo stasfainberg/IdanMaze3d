@@ -6,17 +6,17 @@ import java.util.Random;
 
 public class MyMaze3dGenerator extends CommonMaze3dGenerator{
 
+	private Maze3d maze;
 	private Random rand = new Random();
+	
 	@Override
 	
 	//יצירת מבוך
 	public Maze3d generate(int floor, int rows, int cols) 
 	{
-		maze.setFloor(floor);
-		maze.setRows(rows);
-		maze.setCols(cols);
+		this.maze = new Maze3d(floor, rows, cols);
 		
-		initMaze();//אתחול ב-1ים (קירות)
+		initMaze(floor, rows, cols);//אתחול ב-1ים (קירות)
 		
 		// Choose random start position			
 		chooseStartPosition();
@@ -28,6 +28,18 @@ public class MyMaze3dGenerator extends CommonMaze3dGenerator{
 	}
 	
 
+	public void initMaze(int floor, int rows, int cols) 
+	{
+		//int[][][] m = maze.getMaze();
+		for (int floor_count = 0; floor_count < floor; floor_count++) 
+		{
+			for (int rows_count = 0; rows_count < rows; rows_count++) 
+			{
+				for (int cols_count = 0; cols_count < cols; cols_count++) 
+					this.maze.getMaze()[floor_count][rows_count][cols_count] = Maze3d.WALL;
+			}
+		}		
+	}
 	public void chooseStartPosition() 
 	{		
 		int floor = rand.nextInt(maze.getFloor());
@@ -105,6 +117,7 @@ public class MyMaze3dGenerator extends CommonMaze3dGenerator{
 	} 
 	
 	private ArrayList<Direction> getPossibleDirections(Position pos) {
+		System.out.println("getPossibleDirections");
 		ArrayList<Direction> dirs = new ArrayList<Direction>();
 		int[][][] m = maze.getMaze();
 		
@@ -141,5 +154,18 @@ public class MyMaze3dGenerator extends CommonMaze3dGenerator{
 		
 		return dirs;
 	}
+	
+	
+	
+	
+	public Maze3d getMaze(){
+		return maze;
+	}
+	
+	
+	
+	
+	
+	
 
 }

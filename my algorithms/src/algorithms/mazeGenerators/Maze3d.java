@@ -214,22 +214,39 @@ public class Maze3d {
 	@Override
 	//הפיכת מיקום למחרוזת
 	public String toString() {
-		StringBuilder sb = new StringBuilder();
-		sb.append("Start: " + startPosition + "\n");
-		sb.append("Goal: " + goalPosition + "\n");
-		
-		
-		for (int floor_count = 0; floor_count < floor; floor_count++)
-		{
-			for (int rows_count = 0; rows_count < rows; rows_count++) 
-			{
-				for (int cols_count = 0; cols_count < cols; cols_count++) 				
-					sb.append(maze[floor][rows][cols] + " ");
+		String strOfMazeMatrix = "";
+		for (int i = 0; i < (floor); i++) {
+			strOfMazeMatrix += "\n{\n";
+			for (int j = 0; j < (rows); j++) {
+				strOfMazeMatrix += "{";
+				for (int k = 0; k < (cols); k++) {
+					strOfMazeMatrix += maze[i][j][k];
+				}
+				strOfMazeMatrix += "}\n";
 			}
-			sb.append("\n");
+			strOfMazeMatrix += "},\n";
 		}
+		return "Maze3d:\nDimensions are: floor=" + (floor) + ", col=" + (cols) + ", line=" + (rows)
+				 + strOfMazeMatrix;
 		
-		return sb.toString();
+
+		
+//StringBuilder sb = new StringBuilder();
+//		sb.append("Start: " + startPosition + "\n");
+//		sb.append("Goal: " + goalPosition + "\n");
+//		
+//		
+//		for (int floor_count = 0; floor_count < floor; floor_count++)
+//		{
+//			for (int rows_count = 0; rows_count < rows; rows_count++) 
+//			{
+//				for (int cols_count = 0; cols_count < cols; cols_count++) 				
+//					sb.append(maze[floor-1][rows-1][cols-1] + " ");
+//			}
+//			sb.append("\n");
+//		}
+//		
+//		return sb.toString();
 	}
 	
 	public byte[] toByteArray() {

@@ -1,5 +1,7 @@
 package algorithms.demo;
 
+import java.rmi.activation.ActivationGroupDesc.CommandEnvironment;
+
 import algorithms.mazeGenerators.Maze3d;
 import algorithms.mazeGenerators.Maze3dGenerator;
 import algorithms.mazeGenerators.MyMaze3dGenerator;
@@ -7,10 +9,7 @@ import algorithms.mazeGenerators.Position;
 import algorithms.mazeGenerators.SimpleMaze3dGenerator;
 
 public class Test {
-	//test pulldsadasd
 	
-	//jhgjhgfj2234234234
-	//kkjhkjhkj
 	private static void testMazeGenerator(Maze3dGenerator mg){
 		// prints the time it takes the algorithm to run
 		System.out.println("measure");
@@ -48,11 +47,27 @@ public class Test {
 		}
 		public static void main(String[] args) {
 			
-		System.out.println("******************* Simple ******************");
-		testMazeGenerator(new SimpleMaze3dGenerator());
-		System.out.println("");
-		System.out.println("******************* Simple ******************");
-		testMazeGenerator(new MyMaze3dGenerator());
+			
+			
+			
+			
+//		System.out.println("******************* Simple ******************");
+//		//testMazeGenerator(new SimpleMaze3dGenerator());
+//		System.out.println("");
+//		System.out.println("******************* My ******************");
+//		//testMazeGenerator(new MyMaze3dGenerator());
+//		
+		SimpleMaze3dGenerator smg = new SimpleMaze3dGenerator();
+		smg.generate(3, 10, 10);
+//		
+//		MyMaze3dGenerator mmg = new MyMaze3dGenerator();
+//		mmg.generate(3, 10, 10);
+		
+		
+		
+		
+		
+		
 		}
 	
 //	public void testMazeGenerator(Maze3dGenerator mg)
