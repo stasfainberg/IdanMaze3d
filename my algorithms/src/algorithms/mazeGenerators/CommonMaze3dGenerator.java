@@ -17,7 +17,7 @@ public abstract class CommonMaze3dGenerator implements Maze3dGenerator {
 	@Override
 	public String measureAlgorithmTime(int floor, int rows, int cols) {
 		System.out.println("Measure func");
-	//moded time to creating the Maze
+		//moded time to creating the Maze
 //		Maze3d maze3d=new Maze3d(floor, rows, cols);
 		long start = System.currentTimeMillis(); //begin time to building the maze
 //		maze3d=generate(floor, rows, cols);
@@ -25,7 +25,7 @@ public abstract class CommonMaze3dGenerator implements Maze3dGenerator {
 		long finish = System.currentTimeMillis(); // end time to building the maze		
 		long generate_time=finish-start; // the total time to building the maze	
 		String s = Objects.toString(generate_time, null); //casting time from long to string
-		System.out.println(s);
+		System.out.println("measureAlgorithmTime is: " + generate_time);
 		return s;
 	}
 	
@@ -38,6 +38,7 @@ public abstract class CommonMaze3dGenerator implements Maze3dGenerator {
 		System.out.println("MyMaze 0000");
 		//System.out.println(MyMaze.toString());
 		System.out.println(maze.toString());
+		
 		for(int floor_count = 0; floor_count < floor; floor_count++) 
 		{
 			for (int rows_count = 0; rows_count < rows; rows_count++) 

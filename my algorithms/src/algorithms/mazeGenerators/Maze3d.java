@@ -314,6 +314,69 @@ public class Maze3d {
 		
 		return colsArr;
 	}
+	
+	public ArrayList<Position> getAllNeightbors(Position s) {
+		ArrayList<Position> List = new ArrayList<Position>();
+		int floor = s.getFloor();
+		int line = s.getRows();
+		int col = s.getCols();
+		if (floor > 0){
+			List.add(new Position(floor-1,line,col));
+		}
+		if (line > 0){
+			List.add(new Position(floor,line-1,col));
+		}
+		if (col > 0){
+			List.add(new Position(floor,line,col-1));
+		}
+		if (floor < this.floor-1){
+			List.add(new Position(floor+1,line,col));
+		}
+		if (line < this.rows-1 ){
+			List.add(new Position(floor,line+1,col));
+		}
+		if (col < this.cols-1 ){
+			List.add(new Position(floor,line,col+1));
+		}
+		return List;	
+	}
+
+	public ArrayList<Position> getAllvalidNeightbors(Position p) {
+		ArrayList<Position> List = new ArrayList<Position>();
+		int floor = p.getFloor();
+		int line = p.getRows();
+		int col = p.getCols();
+		
+		if (floor > 0)
+		{
+			if(maze[floor-1][line][col]==0)
+			List.add(new Position(floor-1,line,col));
+		}
+		if (line > 0){
+			if(maze[floor][line-1][col]==0)
+			List.add(new Position(floor,line-1,col));
+		}
+		if (col > 0){
+			if(maze[floor][line][col-1]==0)
+			List.add(new Position(floor,line,col-1));
+		}
+		if (floor < this.floor-1){
+			if(maze[floor+1][line][col]==0)
+			List.add(new Position(floor+1,line,col));
+		}
+		if (line < this.rows-1 ){
+			if(maze[floor][line+1][col]==0)
+			List.add(new Position(floor,line+1,col));
+		}
+		if (col < this.cols-1 ){
+			if(maze[floor][line][col+1]==0)
+			List.add(new Position(floor,line,col+1));
+		}
+		return List;
+	}
+	
+	
+	
 }
 
 

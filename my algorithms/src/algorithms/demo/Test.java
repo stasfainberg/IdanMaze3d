@@ -13,10 +13,10 @@ public class Test {
 	private static void testMazeGenerator(Maze3dGenerator mg){
 		// prints the time it takes the algorithm to run
 		System.out.println("measure");
-		System.out.println(mg.measureAlgorithmTime(3, 15, 15));
+		System.out.println(mg.measureAlgorithmTime(1,3,3));
 		// generate another 3d maze
 		System.out.println("generate");
-		Maze3d maze=mg.generate(3, 15, 15);
+		Maze3d maze=mg.generate(1,3,3);
 		// get the maze entrance
 		System.out.println("positio p = maze.getStartPosition");
 		Position p=maze.getStartPosition();
@@ -52,13 +52,13 @@ public class Test {
 			
 			
 //		System.out.println("******************* Simple ******************");
-//		//testMazeGenerator(new SimpleMaze3dGenerator());
+		testMazeGenerator(new SimpleMaze3dGenerator());
 //		System.out.println("");
 //		System.out.println("******************* My ******************");
 //		//testMazeGenerator(new MyMaze3dGenerator());
 //		
-		SimpleMaze3dGenerator smg = new SimpleMaze3dGenerator();
-		smg.generate(3, 10, 10);
+//		SimpleMaze3dGenerator smg = new SimpleMaze3dGenerator();
+//		smg.generate(3, 10, 10);
 //		
 //		MyMaze3dGenerator mmg = new MyMaze3dGenerator();
 //		mmg.generate(3, 10, 10);
