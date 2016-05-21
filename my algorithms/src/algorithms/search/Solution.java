@@ -1,7 +1,6 @@
 package algorithms.search;
 
 import java.util.ArrayList;
-import domains.State;
 
 //מחלקה זו אחראית על הפיתרון
 public class Solution {

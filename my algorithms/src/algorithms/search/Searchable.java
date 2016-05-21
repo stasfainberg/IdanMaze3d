@@ -1,10 +1,10 @@
-package domains;
+package algorithms.search;
 
 import java.util.HashMap;
 
 public interface Searchable {
 	State getStartState(); //נקודת התחלה של המבוך
-	State getFinalState(); //נקודת סיום של המבוך
+	State getGoalState(); //נקודת סיום של המבוך
 	
 	/* המפתח יהיה action
 	 הערך יהיה state
@@ -12,4 +12,10 @@ public interface Searchable {
 	 */
 	HashMap<Action, State> getAllPossibleActions(State state);
 	
+	
+//	String MoveToAction(State q, State n);
+//	
+//	int MoveToState(State a , State b);
+
+	   
 }

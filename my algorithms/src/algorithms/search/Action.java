@@ -1,4 +1,4 @@
-package domains;
+package algorithms.search;
 
 public class Action {
 	private String description; //תיאור

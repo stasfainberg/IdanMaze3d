@@ -1,18 +1,32 @@
 package algorithms.search;
 import java.util.ArrayList;
 import java.util.PriorityQueue;
-import domains.Searchable;
-import domains.State;
 
 
 public abstract class CommonSearcher implements Searcher {
+	
+	
+
+	protected int evaluatedNodes;
+	
 	public CommonSearcher() {
 		
+	}
+	
+	
+	public int getEvaluatedNodes() {
+		return evaluatedNodes;
+	}
+
+	
+	public void setEvaluatedNodes(int evaluatedNodes) {
+		this.evaluatedNodes = evaluatedNodes;
 	}
 	
 	public abstract Solution search(Searchable s);
 	
 	protected Solution backtrace(State state) {
+				
 		/*backtrace:  
 		 * get a parameter - state
 		 * returns an array which represents (meyatzeg) the path (maslul)

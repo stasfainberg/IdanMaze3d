@@ -1,5 +1,5 @@
-package algorithms.mazeGenerators;
-import domains.Action;
+package algorithms.search;
+import algorithms.mazeGenerators.Direction;
 
 public class MazeAction extends Action {
 		

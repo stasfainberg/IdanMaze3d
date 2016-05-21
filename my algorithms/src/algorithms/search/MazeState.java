@@ -1,6 +1,6 @@
-package algorithms.mazeGenerators;
+package algorithms.search;
 
-import domains.State;
+import algorithms.mazeGenerators.Position;
 public class MazeState extends State {
 	private Position currPlayerPosition;
 

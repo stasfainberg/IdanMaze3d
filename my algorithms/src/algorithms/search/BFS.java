@@ -3,10 +3,6 @@ package algorithms.search;
 import java.util.HashMap;
 import java.util.Map.Entry;
 
-import domains.Action;
-import domains.Searchable;
-import domains.State;
-
 public class BFS extends CommonSearcherWithPQueue {
 
 	@Override
@@ -14,10 +10,10 @@ public class BFS extends CommonSearcherWithPQueue {
 		openList.add(s.getStartState());
 		
 		while (!openList.isEmpty()) {
-			State state = openList.poll();
+			State state = popOpenlist();
 			closedList.add(state);
 			
-			if (state.equals(s.getFinalState())) 
+			if (state.equals(s.getGoalState())) 
 				return backtrace(state);
 			
 			HashMap<Action, State> actions = s.getAllPossibleActions(state);

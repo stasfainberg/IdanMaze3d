@@ -1,36 +1,77 @@
-//package algorithms.demo;
-//
-//import java.io.FileNotFoundException;
-//import java.io.FileOutputStream;
-//import java.io.IOException;
-//import java.io.OutputStream;
-//
-//import algorithms.mazeGenerators.Maze3d;
-//import algorithms.mazeGenerators.Maze3dGenerator;
-//import algorithms.mazeGenerators.MyMaze3dGenerator;
-//import algorithms.mazeGenerators.Position;
-//import algorithms.mazeGenerators.SimpleMaze3dGenerator;
-//import algorithms.search.DFS;
-//import algorithms.search.Solution;
-//import io.MyCompressorOutputStream;
-//
-///*import algorithms.DFS;
-//import algorithms.Solution;
-//import io.MyCompressorOutputStream;
-//import maze.generators.Maze;
-//import maze.generators.MyMazeGenerator;*/
-//
-///**
-// * Demo class
-// * @author idan levy *
-// */ 
-//
-//public class Demo {
-//	/**
-//	 * This method runs a demo
-//	 * 
-//	 */
-//
+package algorithms.demo;
+
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
+
+import algorithms.mazeGenerators.Maze3d;
+import algorithms.mazeGenerators.Maze3dGenerator;
+import algorithms.mazeGenerators.MyMaze3dGenerator;
+import algorithms.mazeGenerators.Position;
+import algorithms.mazeGenerators.SimpleMaze3dGenerator;
+import algorithms.search.BFS;
+import algorithms.search.DFS;
+import algorithms.search.Solution;
+import io.MyCompressorOutputStream;
+
+/*import algorithms.DFS;
+import algorithms.Solution;
+import io.MyCompressorOutputStream;
+import maze.generators.Maze;
+import maze.generators.MyMazeGenerator;*/
+
+/**
+ * Demo class
+ * @author idan levy *
+ */ 
+
+public class Demo {
+	/**
+	 * This method runs a demo
+	 * 
+	 */
+
+	public static void main(String[] args) {
+		
+		System.out.println("1");
+		MyMaze3dGenerator gen = new MyMaze3dGenerator();
+		Maze3d maze = gen.generate(2,3,3);
+		
+		System.out.println("2");
+		System.out.println("Start Position: " + maze.getStartPosition());
+		System.out.println("Goal Position: " + maze.getGoalPosition());
+		System.out.println(maze);
+		
+		System.out.println("3");
+		MazeAdapter adapter = new MazeAdapter(maze);
+		
+		System.out.println("4");
+		BFS bfs = new BFS();
+		DFS dfs = new DFS();
+		System.out.println("5");
+
+		
+		Solution solution = bfs.search(adapter);
+		Solution solution2 = dfs.search(adapter);
+		System.out.println("6");
+
+		System.out.println("BFS solution is: ");
+		System.out.println(solution);
+		System.out.println("numer of BFS evaluated nodes is: " + bfs.getEvaluatedNodes());
+		
+		System.out.println("");
+		
+		System.out.println("DFS solution is: ");
+		System.out.println(solution2);
+		System.out.println("numer of DFS evaluated nodes is: " + dfs.getEvaluatedNodes());
+		
+		
+		
+		
+	}
+	
+	
 //	public void testMazeGenerator(Maze3dGenerator mg)
 //	{
 //		Maze3d maze = mg.getMaze();
@@ -120,5 +161,5 @@
 //			e.printStackTrace();
 //		}		
 //	}//compressMaze
-//	
-//}//Demo
+	
+}//Demo

@@ -2,12 +2,11 @@ package algorithms.search;
 
 import java.util.PriorityQueue;
 
-import domains.Searchable;
-import domains.State;
-
 public abstract class CommonSearcherWithPQueue extends CommonSearcher {
 	protected PriorityQueue<State> openList;
 	protected PriorityQueue<State> closedList;
+	protected Solution solution;
+
 	
 	public CommonSearcherWithPQueue(){
 		//openList-
@@ -18,6 +17,15 @@ public abstract class CommonSearcherWithPQueue extends CommonSearcher {
 		//כל הקודקודים שסיימנו איתם
 		closedList = new PriorityQueue<State>();
 	}
+	
+	protected State popOpenlist(){
+		evaluatedNodes++;
+		return openList.poll();
+	}
+	
+	
+	
+	
 	
 }
 
